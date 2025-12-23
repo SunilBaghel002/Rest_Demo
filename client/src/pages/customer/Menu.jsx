@@ -131,7 +131,7 @@ const Menu = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-primary">
+              <h1 className="text-3xl font-bold text-red-500">
                 🍽️ Delicious Bites
               </h1>
               <p className="text-gray-600 text-sm">Scan, Order, Enjoy!</p>
@@ -139,14 +139,14 @@ const Menu = () => {
             <div className="flex gap-4 items-center">
               <button
                 onClick={() => setShowQR(!showQR)}
-                className="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition"
+                className="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition"
               >
                 Show QR
               </button>
               <a href="/cart" className="relative">
-                <FiShoppingCart className="text-3xl text-dark" />
+                <FiShoppingCart className="text-3xl text-slate-800" />
                 {cart.length > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
                     {cart.length}
                   </span>
                 )}

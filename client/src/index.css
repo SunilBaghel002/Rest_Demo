@@ -1,8 +1,34 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
+@theme {
+  --color-primary: #ff6b6b;
+  --color-secondary: #4ecdc4;
+  --color-dark: #2c3e50;
+
+  --color-primary-50: #fff5f5;
+  --color-primary-100: #ffe3e3;
+  --color-primary-200: #ffc9c9;
+  --color-primary-300: #ffa8a8;
+  --color-primary-400: #ff8787;
+  --color-primary-500: #ff6b6b;
+  --color-primary-600: #fa5252;
+  --color-primary-700: #f03e3e;
+  --color-primary-800: #e03131;
+  --color-primary-900: #c92a2a;
+
+  --color-secondary-50: #f0fdfa;
+  --color-secondary-100: #ccfbf1;
+  --color-secondary-200: #99f6e4;
+  --color-secondary-300: #5eead4;
+  --color-secondary-400: #4ecdc4;
+  --color-secondary-500: #14b8a6;
+  --color-secondary-600: #0d9488;
+  --color-secondary-700: #0f766e;
+  --color-secondary-800: #115e59;
+  --color-secondary-900: #134e4a;
+}
+
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -15,16 +41,40 @@ body {
   background-color: #f8f9fa;
 }
 
-@layer components {
-  .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-600 transition-all shadow-md;
-  }
+/* Custom Component Styles */
+.btn-primary {
+  @apply bg-primary-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-600 transition-all shadow-md;
+}
 
-  .btn-secondary {
-    @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-600 transition-all shadow-md;
-  }
+.btn-secondary {
+  @apply bg-secondary-400 text-white px-6 py-3 rounded-lg font-semibold hover:bg-secondary-600 transition-all shadow-md;
+}
 
-  .card {
-    @apply bg-white rounded-xl shadow-lg p-6;
-  }
+.card {
+  @apply bg-white rounded-xl shadow-lg p-6;
+}
+
+/* Utility overrides if needed */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-dark {
+  background-color: var(--color-dark);
+}
+
+.text-dark {
+  color: var(--color-dark);
+}
+
+.border-primary {
+  border-color: var(--color-primary);
 }
