@@ -20,7 +20,7 @@ api.interceptors.request.use((config) => {
 
 // Menu APIs
 export const menuAPI = {
-  getAll: () => api.get("/menu"),
+  getAll: (params) => api.get("/menu", { params }),
   getById: (id) => api.get(`/menu/${id}`),
   create: (data) => api.post("/menu", data),
   update: (id, data) => api.put(`/menu/${id}`, data),
@@ -29,16 +29,10 @@ export const menuAPI = {
 
 // Order APIs
 export const orderAPI = {
-  getAll: () => api.get("/orders"),
+  getAll: (params) => api.get("/orders", { params }),
   getById: (id) => api.get(`/orders/${id}`),
   create: (data) => api.post("/orders", data),
-  updateStatus: (id, status) => api.put(`/orders/${id}/status`, { status }),
-};
-
-// Auth APIs
-export const authAPI = {
-  login: (credentials) => api.post("/auth/login", credentials),
-  register: (data) => api.post("/auth/register", data),
+  updateStatus: (id, status) => api.patch(`/orders/${id}/status`, { status }),
 };
 
 // Analytics APIs
