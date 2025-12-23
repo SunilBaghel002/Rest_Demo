@@ -3,9 +3,9 @@ import { FiShoppingCart, FiSearch, FiPlus } from "react-icons/fi";
 import { useStore } from "../../store/useStore";
 import { menuAPI } from "../../services/api";
 import toast from "react-hot-toast";
-import QRCode from "qrcode.react";
+import QRCode from "react-qr-code"; // ✅ Updated import
 
-export default function Menu() {
+const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -156,16 +156,25 @@ export default function Menu() {
         </div>
       </header>
 
-      {/* QR Code Modal */}
+      {/* QR Code Modal - ✅ Updated */}
       {showQR && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl p-8 max-w-sm w-full">
             <h2 className="text-2xl font-bold mb-4 text-center">
               Scan to View Menu
             </h2>
-            <div className="flex justify-center mb-4">
-              <QRCode value={window.location.href} size={256} />
+            <div className="flex justify-center mb-4 bg-white p-4 rounded-lg">
+              <QRCode
+                value={window.location.href}
+                size={256}
+                level="H"
+                bgColor="#ffffff"
+                fgColor="#000000"
+              />
             </div>
+            <p className="text-center text-gray-600 text-sm mb-4">
+              Scan this QR code with your phone camera
+            </p>
             <button
               onClick={() => setShowQR(false)}
               className="w-full btn-primary"
@@ -258,4 +267,4 @@ export default function Menu() {
   );
 };
 
-// export default Menu;
+export default Menu;
