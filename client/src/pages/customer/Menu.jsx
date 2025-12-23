@@ -5,7 +5,7 @@ import { menuAPI } from "../../services/api";
 import toast from "react-hot-toast";
 import QRCode from "qrcode.react";
 
-const Menu = () => {
+export default function Menu() {
   const [menuItems, setMenuItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -258,4 +258,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+// export default Menu;
